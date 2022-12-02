@@ -11,5 +11,8 @@ public class MimosaComputers implements ModInitializer {
     @Override
     public void onInitialize() {
         LOGGER.info("Initializing...");
+
+        RegisterItems.register();
+        RegisterBlocks.register();
     }
 }
