@@ -14,5 +14,6 @@ public class MimosaComputers implements ModInitializer {
 
         RegisterItems.register();
         RegisterBlocks.register();
+        RegisterBlockEntities.register();
     }
 }
