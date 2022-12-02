@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "mimosa_computers",
+  "version": "${version}",
+  "name": "MimosaComputers",
+  "description": "A re-imagining of the OpenComputers mod for Forge, in newer versions and in Fabric.",
+  "authors": [
+    "BlueFire_06"
+  ],
+  "contact": {
+    "repo": "https://github.com/ThatCodingGuy86/MimosaComputers"
+  },
+  "license": "MIT",
+  "icon": "assets/mimosa_computers/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "bluefire_06.mimosa_computers.client.MimosaComputersClient"
+    ],
+    "main": [
+      "bluefire_06.mimosa_computers.MimosaComputers"
+    ]
+  },
+  "mixins": [
+    "mimosa_computers.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.11",
+    "fabric": "*",
+    "minecraft": "1.19.2"
+  }
+}
