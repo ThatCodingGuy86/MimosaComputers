@@ -11,9 +11,13 @@ If you do find a bug, please report it on the "issues" page of this repository.
 The major upgrades and changes from OpenComputers that are done, in progress, or planned are:
 * The mod is on version 1.19.2, with the Fabric modloader (with possible, but unlikely Forge version)
 * Use LuaJIT instead of Lua (for faster execution of complex Lua programs) (in progress)
-* Allow for multiple "direct calls" per tick, via a "buffering" system (planned)
 * Include better graphics functionality by default, so players don't have to implement basic 
 things like the rendering of triangles themselves. (planned)
+
+I am accepting `feature` marked issues, I'd love to see what the community can add to this mod.
+
+However, please keep it reasonable. I will remove joke issues, nonsensical issues, or otherwise useless issues.  
+I am also not going to be adding every suggestion, they have to be feasible and not ruin the feel of the mod.
 
 ## Install Instructions
 * First, install JDK version 17.0.1 and Gradle (any version).  
