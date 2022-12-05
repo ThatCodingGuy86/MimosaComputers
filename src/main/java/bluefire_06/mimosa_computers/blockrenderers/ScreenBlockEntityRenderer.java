@@ -15,10 +15,6 @@ import net.minecraft.util.math.Matrix4f;
 
 @Environment(EnvType.CLIENT)
 public class ScreenBlockEntityRenderer implements BlockEntityRenderer<ScreenBlockEntity> {
-    // A jukebox itemstack
-    //private static ItemStack stack = new ItemStack(Items.JUKEBOX, 1);
-
-    //final TextureManager textureManager;
 
     private final NativeImageBackedTexture texture;
     private final RenderLayer renderLayer;
@@ -34,24 +30,20 @@ public class ScreenBlockEntityRenderer implements BlockEntityRenderer<ScreenBloc
         MimosaComputers.LOGGER.info(identifier);
     }
 
-    private void updateTexture() {
+    private void updateTexture(ScreenBlockEntity blockEntity) {
         for(int i = 0; i < 128; ++i) {
             for(int j = 0; j < 128; ++j) {
                 int k = j + i * 128;
-                this.texture.getImage().setColor(j, i, k);
+                this.texture.getImage().setColor(j, i, blockEntity.screenArr[k] | 0xFF000000);
             }
         }
 
         this.texture.upload();
     }
 
-    //public void setNeedsUpdate() {
-    //    this.needsUpdate = true;
-    //}
-
     @Override
     public void render(ScreenBlockEntity blockEntity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
-        this.updateTexture();
+        this.updateTexture(blockEntity);
 
         matrices.push();
 
@@ -61,10 +53,10 @@ public class ScreenBlockEntityRenderer implements BlockEntityRenderer<ScreenBloc
         Matrix4f matrix4f = matrices.peek().getPositionMatrix();
 
         VertexConsumer vertexConsumer = vertexConsumers.getBuffer(this.renderLayer);
-        vertexConsumer.vertex(matrix4f, 0.0F, 1.0F, -0.01F).color(255, 255, 255, 255).texture(0.0F, 1.0F).light(lightAbove).next();
-        vertexConsumer.vertex(matrix4f, 1.0F, 1.0F, -0.01F).color(255, 255, 255, 255).texture(1.0F, 1.0F).light(lightAbove).next();
-        vertexConsumer.vertex(matrix4f, 1.0F, 0.0F, -0.01F).color(255, 255, 255, 255).texture(1.0F, 0.0F).light(lightAbove).next();
-        vertexConsumer.vertex(matrix4f, 0.0F, 0.0F, -0.01F).color(255, 255, 255, 255).texture(0.0F, 0.0F).light(lightAbove).next();
+        vertexConsumer.vertex(matrix4f, 0.0F, 1.0F, -0.01F).color(255, 255, 255, 255).texture(0.0F, 0.0F).light(lightAbove).next();
+        vertexConsumer.vertex(matrix4f, 1.0F, 1.0F, -0.01F).color(255, 255, 255, 255).texture(1.0F, 0.0F).light(lightAbove).next();
+        vertexConsumer.vertex(matrix4f, 1.0F, 0.0F, -0.01F).color(255, 255, 255, 255).texture(1.0F, 1.0F).light(lightAbove).next();
+        vertexConsumer.vertex(matrix4f, 0.0F, 0.0F, -0.01F).color(255, 255, 255, 255).texture(0.0F, 1.0F).light(lightAbove).next();
         matrices.pop();
     }
 }
