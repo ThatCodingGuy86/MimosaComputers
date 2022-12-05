@@ -24,8 +24,7 @@ then pressing "download as ZIP", then extracting it to a drive with at least 300
 This should produce a folder in that directory labeled "build". Go into that folder, then go into
 the `libs` folder within that. There should be a file labeled `mimosa_computers-(version).jar`.  
 Copy that into your `mods` folder.
-* Then, go to the repository [OpenComputers-Rust-LuaJIT](https://github.com/ThatCodingGuy86/MimosaComputers-Rust-LuaJIT),  
-and follow the instructions there. After getting the DLL, put that into the top level of the folder your Minecraft install is in. (This is one directory above your `mods` folder.)  
+* Then, go to the repository [OpenComputers-Rust-LuaJIT](https://github.com/ThatCodingGuy86/MimosaComputers-Rust-LuaJIT), and follow the instructions there.
 
 After that, you have installed and can run the MimosaComputers mod.  
 Don't worry, this will get easier once this is more developed, I can't be bothered to set  
